@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+        #reminder{
+            text-align: center;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            height: 500px;
+            width: 500px;
+            background-color: black;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+		<h1>WELCOME TO ACE LIBRARY</h1>
+    <div id="reminder">
+        <h2>Still Browsing?</h2>
+        <br>
+        <h4>If yes, then just move mouse, orelse the session will end automatically!</h4>
+        <div id="time" style="color: white;">
+            
+        </div>
+    </div>
+
+    <script>
+        let time;
+        let sec=30;
+        let timer;
+        
+        function sessiontime(){
+            clearInterval(timer);
+            sec=30;
+            document.getElementById('reminder').style.display='none';
+            
+            clearTimeout(time);
+            
+            time=setTimeout(function display(){
+                document.getElementById('reminder').style.display='flex';
+                document.getElementById('time').innerHTML=
+                `<p>0:${sec}</p>`;
+                 timer= setInterval(function timer(){
+            sec--;
+            document.getElementById('time').innerHTML=
+                `<p>0:${sec}</p>`;
+                if(sec<10){
+                    document.getElementById('time').innerHTML=
+                `<p>0:0${sec}</p>`;
+                }
+                if(sec==0){
+                    window.location.href="login.html";
+                }
+                
+        }, 1000);
+
+            },5000);
+            
+
+        }
+        window.onload=sessiontime;
+        document.onmousemove=sessiontime;
+        document.onclick=sessiontime;
+        
+    </script>
+</body>
+</html>

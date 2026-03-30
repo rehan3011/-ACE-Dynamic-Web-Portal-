@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items:center ;
+        }
+        form{
+            height: 250px;
+            width: 250px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid black;
+        }
+        .placeholder{
+            width: 200px;
+            margin: 5px 0 2px 0;
+        }
+    </style>
+</head>
+<body>
+	 <form action="login" method="post">
+        LOGIN
+        <input type="text" name="username" placeholder="username" class="placeholder">
+        <input type="password" name="password" placeholder="password" class="placeholder">
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
